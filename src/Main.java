@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
-    public static Book book = new Book();
+    public static Book book;
 
     public static void main(String[] args) throws Exception{
         boolean b = true;
@@ -17,6 +17,7 @@ public class Main {
             loadBook();
         } catch (FileNotFoundException e) {
             System.out.println("Error: no books found.");
+            book = new Book();
         }
         while(b){
             System.out.println("What would you like to do? [1. New Book | 2. Exit]");
@@ -61,8 +62,8 @@ public class Main {
         String contents = s.next();
         s.close();
         JsonParser p = new JsonParser();
-        Book b2 = p.parse(contents, Book.class);
-        System.out.println(b2);
+        book = p.parse(contents, Book.class);
+        System.out.println(book);
 
 
     }
