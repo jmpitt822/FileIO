@@ -20,14 +20,15 @@ public class Main {
             book = new Book();
         }
         while(b){
-            System.out.println("What would you like to do? [1. New Book | 2. Exit]");
+            System.out.println("What would you like to do? [1. New Book | 2. Update Book | 3. Exit]");
             String choice = scanner.nextLine();
             switch (choice){
                 case "1":
                     newBook();
-//                    b = false;
                     break;
                 case "2":
+                    updateBook();
+                case "3":
                     System.exit(0);
                     break;
                 default:
@@ -44,6 +45,34 @@ public class Main {
         book.chooseLengthPgs();
         book.chooseRating();
         saveBook();
+    }
+
+    public static void updateBook() throws Exception {
+        System.out.println("Which category would you like to update? [1. Title | 2. Author | 3. Genre | 4. Length | 5. Rating]");
+        String updateChoice = scanner.nextLine();
+        switch (updateChoice) {
+            case "1":
+                book.chooseTitle();
+                break;
+            case "2":
+                book.chooseAuthor();
+                break;
+            case "3":
+                book.chooseGenre();
+                break;
+            case "4":
+                book.chooseLengthPgs();
+                break;
+            case "5":
+                book.chooseRating();
+                break;
+            default:
+                System.out.println("Invalid Choice");
+        }
+         saveBook();
+        loadBook();
+
+
     }
 
     public static void saveBook() throws IOException{

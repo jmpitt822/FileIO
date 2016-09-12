@@ -28,10 +28,10 @@ public class Book {
     }
 
     public void chooseLengthPgs() {
+        boolean a = false;
         System.out.println("Enter the length of the book (in pages):");
         lengthInput = Main.scanner.nextLine();
         lengthPgs = Integer.parseInt(lengthInput);
-
     }
 
     public void chooseRating() {
